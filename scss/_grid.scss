@@ -42,20 +42,79 @@
 // Rows contain your columns.
 
 @if $enable-grid-classes {
+  .grid,
   .row {
     @include make-row();
+
+    > * {
+      @include make-col-ready();
+    }
+  }
+
+  .grid {
+    margin-bottom: -$grid-gutter-width;
+
+    > * {
+      margin-bottom: $grid-gutter-width;
+    }
   }
 
   // Remove the negative margin from default .row, then the horizontal padding
   // from all immediate children columns (to prevent runaway style inheritance).
-  .no-gutters {
+  .grid-0,
+  .row-0 {
     margin-right: 0;
     margin-left: 0;
 
-    > .col,
-    > [class*="col-"] {
+    > * {
       padding-right: 0;
       padding-left: 0;
+    }
+  }
+
+  .grid-0 {
+    margin-bottom: 0;
+
+    > * {
+      margin-bottom: 0;
+    }
+  }
+
+  .grid-sm,
+  .row-sm {
+    margin-right: -$grid-gutter-width-sm / 2;
+    margin-left: -$grid-gutter-width-sm / 2;
+
+    > * {
+      padding-right: $grid-gutter-width-sm / 2;
+      padding-left: $grid-gutter-width-sm / 2;
+    }
+  }
+
+  .grid-sm {
+    margin-bottom: -$grid-gutter-width-sm;
+
+    > * {
+      margin-bottom: $grid-gutter-width-sm;
+    }
+  }
+
+  .grid-lg,
+  .row-lg {
+    margin-right: -$grid-gutter-width-lg / 2;
+    margin-left: -$grid-gutter-width-lg / 2;
+
+    > * {
+      padding-right: $grid-gutter-width-lg / 2;
+      padding-left: $grid-gutter-width-lg / 2;
+    }
+  }
+
+  .grid-lg {
+    margin-bottom: -$grid-gutter-width-lg;
+
+    > * {
+      margin-bottom: $grid-gutter-width-lg;
     }
   }
 }
