@@ -42,7 +42,6 @@
 // Rows contain your columns.
 
 @if $enable-grid-classes {
-  .grid,
   .row {
     @include make-row();
 
@@ -50,71 +49,36 @@
       @include make-col-ready();
     }
   }
+}
 
-  .grid {
-    margin-bottom: -$grid-gutter-width;
+// Gutters
+//
+// Make use of `.g-*`, `.gx-*` or `.gy-*` utilities to change spacing between the columns.
 
-    > * {
-      margin-bottom: $grid-gutter-width;
-    }
-  }
+@if $enable-grid-classes {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-  // Remove the negative margin from default .row, then the horizontal padding
-  // from all immediate children columns (to prevent runaway style inheritance).
-  .grid-0,
-  .row-0 {
-    margin-right: 0;
-    margin-left: 0;
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
 
-    > * {
-      padding-right: 0;
-      padding-left: 0;
-    }
-  }
+      @each $key, $value in $gutters {
+        .g#{$infix}-#{$key},
+        .gx#{$infix}-#{$key} {
+          > * {
+            padding-right: $value / 2;
+            padding-left: $value / 2;
+          }
+        }
 
-  .grid-0 {
-    margin-bottom: 0;
+        .g#{$infix}-#{$key},
+        .gy#{$infix}-#{$key} {
+          margin-bottom: -$value;
 
-    > * {
-      margin-bottom: 0;
-    }
-  }
-
-  .grid-sm,
-  .row-sm {
-    margin-right: -$grid-gutter-width-sm / 2;
-    margin-left: -$grid-gutter-width-sm / 2;
-
-    > * {
-      padding-right: $grid-gutter-width-sm / 2;
-      padding-left: $grid-gutter-width-sm / 2;
-    }
-  }
-
-  .grid-sm {
-    margin-bottom: -$grid-gutter-width-sm;
-
-    > * {
-      margin-bottom: $grid-gutter-width-sm;
-    }
-  }
-
-  .grid-lg,
-  .row-lg {
-    margin-right: -$grid-gutter-width-lg / 2;
-    margin-left: -$grid-gutter-width-lg / 2;
-
-    > * {
-      padding-right: $grid-gutter-width-lg / 2;
-      padding-left: $grid-gutter-width-lg / 2;
-    }
-  }
-
-  .grid-lg {
-    margin-bottom: -$grid-gutter-width-lg;
-
-    > * {
-      margin-bottom: $grid-gutter-width-lg;
+          > * {
+            margin-bottom: $value;
+          }
+        }
+      }
     }
   }
 }
