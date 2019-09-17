@@ -37,7 +37,7 @@ Most custom components do not have `position: relative` by default, so we need t
 
 
 {{< example >}}
-<div class="row no-gutters bg-light position-relative">
+<div class="row g-0 bg-light position-relative">
   <div class="col-md-6 mb-md-0 p-md-4">
     {{< placeholder width="100%" height="200" class="w-100" text="false" title="Generic placeholder image" >}}
   </div>
