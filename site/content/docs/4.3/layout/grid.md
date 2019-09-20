@@ -498,7 +498,7 @@ An alternative solution is to add a wrapper around the `.row` with the `.overflo
 
 ### Row columns gutters
 
-Gutter classes can also be added to row columns. In the following example we use as well responsive row columns as responsive gutter widths:
+Gutter classes can also be added to [row columns](#row-columns). In the following example we use as well responsive row columns as responsive gutter widths:
 
 {{< example >}}
 <div class="container">
