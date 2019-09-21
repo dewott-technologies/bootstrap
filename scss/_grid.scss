@@ -72,6 +72,9 @@
       @each $key, $value in $gutters {
         .g#{$infix}-#{$key},
         .gx#{$infix}-#{$key} {
+          margin-right: -$value / 2;
+          margin-left: -$value / 2;
+
           > * {
             padding-right: $value / 2;
             padding-left: $value / 2;

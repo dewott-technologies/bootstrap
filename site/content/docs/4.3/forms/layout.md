@@ -293,43 +293,49 @@ You can then remix that once again with size-specific column classes.
 
 ## Inline forms
 
-Use the `.form-inline` class to display a series of labels, form controls, and buttons on a single horizontal row. Form controls within inline forms vary slightly from their default states.
+Use the `.col-auto` class to create horizontal layouts. By adding the `.g-2` class, we'll have gutters in horizontal and vertical directions. The `.align-items-center` aligns the form elements to the middle, making the `.form-checkbox` align properly.
 
-- Controls are `display: flex`, collapsing any HTML white space and allowing you to provide alignment control with [spacing]({{< docsref "/utilities/spacing" >}}) and [flexbox]({{< docsref "/utilities/flex" >}}) utilities.
-- Controls and input groups receive `width: auto` to override the Bootstrap default `width: 100%`.
-- Controls **only appear inline in viewports that are at least 576px wide** to account for narrow viewports on mobile devices.
-
-You may need to manually address the width and alignment of individual form controls with [spacing utilities]({{< docsref "/utilities/spacing" >}}) (as shown below). Lastly, be sure to always include a `<label>` with each form control, even if you need to hide it from non-screenreader visitors with `.sr-only`.
+Be sure to always include a `<label>` with each form control, even if you need to hide it from non-screenreader visitors with `.sr-only`.
 
 {{< example >}}
-<form class="form-inline">
-  <label class="sr-only" for="inlineFormInputName">Name</label>
-  <input type="text" class="form-control" id="inlineFormInputName" placeholder="Jane Doe">
+<form class="row g-2 align-items-center">
+  <div class="col-md-auto">
+    <label class="sr-only" for="inlineFormInputName">Name</label>
+    <input type="text" class="form-control" id="inlineFormInputName" placeholder="Jane Doe">
+  </div>
 
-  <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <div class="input-group-text">@</div>
+  <div class="col-md-auto">
+    <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">@</div>
+      </div>
+      <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
     </div>
-    <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
   </div>
 
-  <label class="sr-only" for="inlineFormSelectPref">Preference</label>
-  <select class="form-select" id="inlineFormSelectPref">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-    <label class="form-check-label" for="inlineFormCheck">
-      Remember me
-    </label>
+  <div class="col-md-auto">
+    <label class="sr-only" for="inlineFormSelectPref">Preference</label>
+    <select class="form-select" id="inlineFormSelectPref">
+      <option selected>Choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="col-md-auto">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+      <label class="form-check-label" for="inlineFormCheck">
+        Remember me
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-auto">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 </form>
 {{< /example >}}
 

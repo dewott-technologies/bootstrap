@@ -416,7 +416,7 @@ $gutters: (
   4: $grid-gutter-width * 1.5,
   5: $grid-gutter-width * 3,
 );
-``` 
+```
 
 ### Horizontal gutters
 
